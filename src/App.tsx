@@ -25,7 +25,10 @@ function App() {
         try {
           setLoader(true);
           setError(false);
-          const fetchedData: FetchedData = await fetchQuery(query, currPage);
+          const fetchedData: FetchedData = await fetchQuery<FetchedData>(
+            query,
+            currPage
+          );
           setTotalPages(fetchedData.total_pages);
           setPhotos((photos) => [...photos, ...fetchedData.results]);
         } catch (error) {
